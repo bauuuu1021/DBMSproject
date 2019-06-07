@@ -26,6 +26,11 @@ namespace DBMSproject
 
         string[] tableListVal = new string[] { "FACULTY", "SCHOLAR", "STU", "DEPT", "PROF" };
         string[] opListVal = new string[] { "Select", "Delete", "Update", "Insert" };
+        string[,] attribute = new string[,] { { "id", "tel", "office", "name", " " }
+                                            , { "holder", "sem", "name", "principle", " " }
+                                            , { "id", "name", "grade", "dept", "tutor" }
+                                            , { "id", "name", "since", "college", "leader" }
+                                            , { "id", "name", "dept", " ", " " } };
 
         public MainWindow()
         {
@@ -77,22 +82,156 @@ namespace DBMSproject
                 }
                 else if (opList.SelectedItem == opListVal[1])   // Delete
                 {
-                    Console.WriteLine('1');
+                    button_cmd.CommandText = "Delete from " + tableList.SelectedItem + combineRequest();
+                    button_cmd.ExecuteNonQuery();
                 }
                 else if (opList.SelectedItem == opListVal[2])   // Update
                 {
-                    Console.WriteLine('2');
+                    button_cmd.CommandText = "Update " + tableList.SelectedItem + update_attr() + combineRequest();
+                    button_cmd.ExecuteNonQuery();
                 }
                 else if (opList.SelectedItem == opListVal[3])   // Insert
                 {
-                    button_cmd.CommandText = string.Format("Insert into {0} values ('{1}',{2})");
-                    //Console.WriteLine("test {0} end", opTableList.Text);
+                    String req = String.Format("{0} , {1} , {2}", current_col0_input.Text, current_col1_input.Text, current_col2_input.Text);
+
+                    if (!String.IsNullOrEmpty(current_col3_input.Text))
+                    {
+                        req += " , " + current_col3_input.Text;
+                    }
+                    if (!String.IsNullOrEmpty(current_col4_input.Text))
+                    {
+                        req += " , " + current_col4_input.Text;
+                    }
+
+                    button_cmd.CommandText = String.Format("Insert into {0} values ({1})", tableList.SelectedItem, req);
+                    button_cmd.ExecuteNonQuery();
                 }
             }
             catch
             {
                 ;
             }
+        }
+
+        private string update_attr()
+        {
+            string req = " set ";
+            int tableIndex = opTableList.SelectedIndex;
+            Boolean doneReq = false;
+
+            try
+            {
+                if (!String.IsNullOrEmpty(new_col0_input.Text))
+                {
+                    if (doneReq)
+                        req += " , ";
+
+                    req += String.Format("{0} = {1} ", attribute[tableIndex, 0], new_col0_input.Text);
+                    doneReq = true;
+                }
+                if (!String.IsNullOrEmpty(new_col1_input.Text))
+                {
+                    if (doneReq)
+                        req += " , ";
+
+                    req += String.Format("{0} = {1} ", attribute[tableIndex, 1], new_col1_input.Text);
+                    doneReq = true;
+                }
+                if (!String.IsNullOrEmpty(new_col2_input.Text))
+                {
+                    if (doneReq)
+                        req += " , ";
+
+                    req += String.Format("{0} = {1} ", attribute[tableIndex, 2], new_col2_input.Text);
+                    doneReq = true;
+                }
+                if (!String.IsNullOrEmpty(new_col3_input.Text))
+                {
+                    if (doneReq)
+                        req += " , ";
+
+                    req += String.Format("{0} = {1} ", attribute[tableIndex, 3], new_col3_input.Text);
+                    doneReq = true;
+                }
+                if (!String.IsNullOrEmpty(new_col4_input.Text))
+                {
+                    if (doneReq)
+                        req += " , ";
+
+                    req += String.Format("{0} = {1} ", attribute[tableIndex, 4], new_col4_input.Text);
+                    doneReq = true;
+                }
+            }
+            catch
+            {
+
+            }
+            return req + " ";
+        }
+        private string combineRequest()
+        {
+            String req = "";
+            int tableIndex = opTableList.SelectedIndex;
+            Boolean doneReq = false;
+
+            try
+            {
+                if (!String.IsNullOrEmpty(current_col0_input.Text))
+                {
+                    if (doneReq)
+                        req += "and ";
+                    else
+                        req += " where ";
+
+                    req += String.Format("{0} in ({1}) ", attribute[tableIndex, 0], current_col0_input.Text);
+                    doneReq = true;
+                }
+                if (!String.IsNullOrEmpty(current_col1_input.Text))
+                {
+                    if (doneReq)
+                        req += "and ";
+                    else
+                        req += " where ";
+
+                    req += String.Format("{0} in ({1}) ", attribute[tableIndex, 1], current_col1_input.Text);
+                    doneReq = true;
+                }
+                if (!String.IsNullOrEmpty(current_col2_input.Text))
+                {
+                    if (doneReq)
+                        req += "and ";
+                    else
+                        req += " where ";
+
+                    req += String.Format("{0} in ({1}) ", attribute[tableIndex, 2], current_col2_input.Text);
+                    doneReq = true;
+                }
+                if (!String.IsNullOrEmpty(current_col3_input.Text))
+                {
+                    if (doneReq)
+                        req += "and ";
+                    else
+                        req += " where ";
+
+                    req += String.Format("{0} in ({1}) ", attribute[tableIndex, 3], current_col3_input.Text);
+                    doneReq = true;
+                }
+                if (!String.IsNullOrEmpty(current_col4_input.Text))
+                {
+                    if (doneReq)
+                        req += "and ";
+                    else
+                        req += " where ";
+
+                    req += String.Format("{0} in ({1}) ", attribute[tableIndex, 4], current_col4_input.Text);
+                    doneReq = true;
+                }
+            }
+            catch
+            {
+                ;
+            }
+            return req;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
