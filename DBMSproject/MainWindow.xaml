@@ -1,0 +1,67 @@
+﻿<Window x:Class="DBMSproject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DBMSproject"
+        mc:Ignorable="d"
+        Title="弱勢助學獎助金系統" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="dataZone" HorizontalAlignment="Left" Height="171" Margin="0,239,0,0" VerticalAlignment="Top" Width="371"/>
+        <Button Content="列出資料庫" HorizontalAlignment="Left" Margin="112,214,0,0" VerticalAlignment="Top" Width="75" Click="tableList_Click" RenderTransformOrigin="0.377,11.547"/>
+        <Button Content="test insert" HorizontalAlignment="Left" Margin="239,214,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <TextBox x:Name="queryCmd" Height="91" Margin="28,15,493.6,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding queryCmd}" />
+        <Button x:Name="sendQry" Content="Send" HorizontalAlignment="Left" Margin="28,125,0,0" VerticalAlignment="Top" Width="75" Click="sendQry_Click"/>
+        <ComboBox x:Name="tableList" HorizontalAlignment="Left" Margin="11,214,0,0" VerticalAlignment="Top" Width="92" RenderTransformOrigin="-0.284,0.51" />
+        <Label x:Name="FACULTY_title" Content="FACULTY" HorizontalAlignment="Left" Margin="416,38,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.37,-0.32"/>
+        <TextBox x:Name="FACULTY_id" HorizontalAlignment="Left" Height="22" Margin="450,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBox x:Name="FACULTY_tel" HorizontalAlignment="Left" Height="22" Margin="520,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBox x:Name="FACULTY_office" HorizontalAlignment="Left" Height="22" Margin="590,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBox x:Name="FACULTY_name" HorizontalAlignment="Left" Height="22" Margin="660,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <CheckBox x:Name="FACULTY_id_sel" Content="id" HorizontalAlignment="Left" Margin="450,69,0,0" VerticalAlignment="Top" Width="49"/>
+        <CheckBox x:Name="FACULTY_tel_sel" Content="tel" HorizontalAlignment="Left" Margin="520,69,0,0" VerticalAlignment="Top" Width="49"/>
+        <CheckBox x:Name="FACULTY_office_sel" Content="office" HorizontalAlignment="Left" Margin="590,69,0,0" VerticalAlignment="Top" Width="55"/>
+        <CheckBox x:Name="FACULTY_name_sel" Content="name" HorizontalAlignment="Left" Margin="660,69,0,0" VerticalAlignment="Top" Width="55"/>
+        <Label x:Name="SCHOLAR_title" Content="SCHOLAR" HorizontalAlignment="Left" Margin="416,110,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.37,-0.32"/>
+        <TextBox x:Name="SCHOLAR_holder" HorizontalAlignment="Left" Height="22" Margin="450,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBox x:Name="SCHOLAR_sem" HorizontalAlignment="Left" Height="22" Margin="520,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBox x:Name="SCHOLAR_name" HorizontalAlignment="Left" Height="22" Margin="590,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBox x:Name="SCHOLAR_principle" HorizontalAlignment="Left" Height="22" Margin="660,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <CheckBox x:Name="SCHOLAR_holder_sel" Content="holder" HorizontalAlignment="Left" Margin="450,141,0,0" VerticalAlignment="Top" Width="60"/>
+        <CheckBox x:Name="SCHOLAR_sem_sel" Content="sem" HorizontalAlignment="Left" Margin="520,141,0,0" VerticalAlignment="Top" Width="49"/>
+        <CheckBox x:Name="SCHOLAR_name_sel" Content="name" HorizontalAlignment="Left" Margin="590,141,0,0" VerticalAlignment="Top" Width="55"/>
+        <CheckBox x:Name="SCHOLAR_principle_sel" Content="principle" HorizontalAlignment="Left" Margin="660,141,0,0" VerticalAlignment="Top" Width="70"/>
+        <Label x:Name="STU_title" Content="STU" HorizontalAlignment="Left" Margin="416,182,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.37,-0.32"/>
+        <TextBox x:Name="STU_id" HorizontalAlignment="Left" Height="22" Margin="450,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBox x:Name="STU_name" HorizontalAlignment="Left" Height="22" Margin="520,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBox x:Name="STU_grade" HorizontalAlignment="Left" Height="22" Margin="590,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBox x:Name="STU_dept" HorizontalAlignment="Left" Height="22" Margin="660,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <CheckBox x:Name="STU_id_sel" Content="id" HorizontalAlignment="Left" Margin="450,213,0,0" VerticalAlignment="Top" Width="49"/>
+        <CheckBox x:Name="STU_name_sel" Content="name" HorizontalAlignment="Left" Margin="520,213,0,0" VerticalAlignment="Top" Width="55"/>
+        <CheckBox x:Name="STU_grade_sel" Content="grade" HorizontalAlignment="Left" Margin="590,213,0,0" VerticalAlignment="Top" Width="55"/>
+        <CheckBox x:Name="STU_dept_sel" Content="dept" HorizontalAlignment="Left" Margin="660,213,0,0" VerticalAlignment="Top" Width="55"/>
+        <Label x:Name="DEPT_title" Content="DEPT" HorizontalAlignment="Left" Margin="416,254,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.37,-0.32"/>
+        <TextBox x:Name="DEPT_id" HorizontalAlignment="Left" Height="22" Margin="450,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBox x:Name="DEPT_name" HorizontalAlignment="Left" Height="22" Margin="520,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBox x:Name="DEPT_since" HorizontalAlignment="Left" Height="22" Margin="590,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBox x:Name="DEPT_college" HorizontalAlignment="Left" Height="22" Margin="660,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <CheckBox x:Name="DEPT_id_sel" Content="id" HorizontalAlignment="Left" Margin="450,285,0,0" VerticalAlignment="Top" Width="49"/>
+        <CheckBox x:Name="DEPT_name_sel" Content="name" HorizontalAlignment="Left" Margin="520,285,0,0" VerticalAlignment="Top" Width="55"/>
+        <CheckBox x:Name="DEPT_since_sel" Content="since" HorizontalAlignment="Left" Margin="590,285,0,0" VerticalAlignment="Top" Width="55"/>
+        <CheckBox x:Name="DEPT_college_sel" Content="college" HorizontalAlignment="Left" Margin="660,285,0,0" VerticalAlignment="Top" Width="60"/>
+        <Label x:Name="PROF_title" Content="PROF" HorizontalAlignment="Left" Margin="416,325,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.37,-0.32"/>
+        <TextBox x:Name="PROF_id" HorizontalAlignment="Left" Height="22" Margin="450,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBox x:Name="PROF_name" HorizontalAlignment="Left" Height="22" Margin="520,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55"/>
+        <TextBox x:Name="PROF_dept" HorizontalAlignment="Left" Height="22" Margin="590,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <CheckBox x:Name="PROF_id_sel" Content="id" HorizontalAlignment="Left" Margin="450,356,0,0" VerticalAlignment="Top" Width="49"/>
+        <CheckBox x:Name="PROF_name_sel" Content="name" HorizontalAlignment="Left" Margin="520,356,0,0" VerticalAlignment="Top" Width="55"/>
+        <CheckBox x:Name="PROF_dept_sel" Content="dept" HorizontalAlignment="Left" Margin="590,356,0,0" VerticalAlignment="Top" Width="55"/>
+        <TextBox x:Name="STU_tutor" HorizontalAlignment="Left" Height="22" Margin="730,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <CheckBox x:Name="STU_tutor_sel" Content="tutor" HorizontalAlignment="Left" Margin="730,213,0,0" VerticalAlignment="Top" Width="55"/>
+        <TextBox x:Name="DEPT_leader" HorizontalAlignment="Left" Height="22" Margin="730,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <CheckBox x:Name="DEPT_leader_sel" Content="leader" HorizontalAlignment="Left" Margin="730,284,0,0" VerticalAlignment="Top" Width="55"/>
+        <ComboBox x:Name="opList" HorizontalAlignment="Left" Margin="440,15,0,0" VerticalAlignment="Top" Width="92" />
+        <Button x:Name="opSend" Content="Send" HorizontalAlignment="Left" Margin="671,15,0,0" VerticalAlignment="Top" Width="75" Click="OpSend_Click"/>
+        <ComboBox x:Name="opTableList" HorizontalAlignment="Left" Margin="555,15,0,0" VerticalAlignment="Top" Width="92" />
+    </Grid>
+</Window>
