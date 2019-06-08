@@ -78,16 +78,28 @@ namespace DBMSproject
 
                 if (opList.SelectedItem == opListVal[0])        // Select
                 {
-                    Console.WriteLine('0');
+                    String req = checkbox_request();
+                    if (String.IsNullOrEmpty(req))
+                        req = "*";
+
+                    button_cmd.CommandText = "Select " + req + " from " + opTableList.SelectedItem + combine_request();
+                    dr = button_cmd.ExecuteReader();
+
+                    DataTable dt = new DataTable();
+                    dt.Load(dr);
+
+                    dataZone.ItemsSource = dt.DefaultView;
+
+                    Console.WriteLine(button_cmd.CommandText);                   
                 }
                 else if (opList.SelectedItem == opListVal[1])   // Delete
                 {
-                    button_cmd.CommandText = "Delete from " + tableList.SelectedItem + combineRequest();
+                    button_cmd.CommandText = "Delete from " + opTableList.SelectedItem + combine_request();
                     button_cmd.ExecuteNonQuery();
                 }
                 else if (opList.SelectedItem == opListVal[2])   // Update
                 {
-                    button_cmd.CommandText = "Update " + tableList.SelectedItem + update_attr() + combineRequest();
+                    button_cmd.CommandText = "Update " + opTableList.SelectedItem + update_attr() + combine_request();
                     button_cmd.ExecuteNonQuery();
                 }
                 else if (opList.SelectedItem == opListVal[3])   // Insert
@@ -113,6 +125,62 @@ namespace DBMSproject
             }
         }
 
+        private string checkbox_request()
+        {
+            string req = "";
+            int tableIndex = opTableList.SelectedIndex;
+            Boolean doneReq = false;
+
+            try
+            {
+                if (Convert.ToBoolean(current_col0.IsChecked))
+                {
+                    if (doneReq)
+                        req += " , ";
+
+                    req += attribute[tableIndex, 0];
+                    doneReq = true;
+                }
+                if (Convert.ToBoolean(current_col1.IsChecked))
+                {
+                    if (doneReq)
+                        req += " , ";
+
+                    req += attribute[tableIndex, 1];
+                    doneReq = true;
+                }
+                if (Convert.ToBoolean(current_col2.IsChecked))
+                {
+                    if (doneReq)
+                        req += " , ";
+
+                    req += attribute[tableIndex, 2];
+                    doneReq = true;
+                }
+                if (Convert.ToBoolean(current_col3.IsChecked))
+                {
+                    if (doneReq)
+                        req += " , ";
+
+                    req += attribute[tableIndex, 3];
+                    doneReq = true;
+                }
+                if (Convert.ToBoolean(current_col4.IsChecked))
+                {
+                    if (doneReq)
+                        req += " , ";
+
+                    req += attribute[tableIndex, 4];
+                    doneReq = true;
+                }
+
+            }
+            catch
+            {
+                ;
+            }
+            return req;
+        }
         private string update_attr()
         {
             string req = " set ";
@@ -164,11 +232,11 @@ namespace DBMSproject
             }
             catch
             {
-
+                ;
             }
             return req + " ";
         }
-        private string combineRequest()
+        private string combine_request()
         {
             String req = "";
             int tableIndex = opTableList.SelectedIndex;
