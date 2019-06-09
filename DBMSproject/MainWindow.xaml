@@ -9,7 +9,7 @@
     <Grid>
         <DataGrid x:Name="dataZone" HorizontalAlignment="Left" Height="345" Margin="13,55,0,0" VerticalAlignment="Top" Width="371"/>
         <Button Content="列出資料庫" HorizontalAlignment="Left" Margin="137,17,0,0" VerticalAlignment="Top" Width="75" Click="tableList_Click" RenderTransformOrigin="0.377,11.547"/>
-        <Button Content="test insert" HorizontalAlignment="Left" Margin="258,17,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Content="test insert" HorizontalAlignment="Left" Margin="239,17,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
         <TextBox x:Name="queryCmd" Height="91" Margin="468,254,53.6,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding queryCmd}" />
         <Button x:Name="sendQry" Content="Send" HorizontalAlignment="Left" Margin="665,363,0,0" VerticalAlignment="Top" Width="75" Click="sendQry_Click" RenderTransformOrigin="3.16,0.698"/>
         <ComboBox x:Name="tableList" HorizontalAlignment="Left" Margin="32,17,0,0" VerticalAlignment="Top" Width="94" RenderTransformOrigin="-0.284,0.51" Height="19" />
@@ -27,14 +27,14 @@
         <TextBox x:Name="new_col1_input" HorizontalAlignment="Left" Height="22" Margin="520,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
         <TextBox x:Name="new_col2_input" HorizontalAlignment="Left" Height="22" Margin="590,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
         <TextBox x:Name="new_col3_input" HorizontalAlignment="Left" Height="22" Margin="660,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
-        <CheckBox x:Name="new_col0" Content="col0" HorizontalAlignment="Left" Margin="450,175,0,0" VerticalAlignment="Top" Width="49"/>
-        <CheckBox x:Name="new_col1" Content="col1" HorizontalAlignment="Left" Margin="520,175,0,0" VerticalAlignment="Top" Width="55"/>
-        <CheckBox x:Name="new_col2" Content="col2" HorizontalAlignment="Left" Margin="590,175,0,0" VerticalAlignment="Top" Width="55"/>
-        <CheckBox x:Name="new_col3" Content="col3" HorizontalAlignment="Left" Margin="660,175,0,0" VerticalAlignment="Top" Width="60"/>
+        <CheckBox x:Name="new_col0" Content="c0/count" HorizontalAlignment="Left" Margin="450,175,0,0" VerticalAlignment="Top" Width="70"/>
+        <CheckBox x:Name="new_col1" Content="c1/sum" HorizontalAlignment="Left" Margin="520,175,0,0" VerticalAlignment="Top" Width="70"/>
+        <CheckBox x:Name="new_col2" Content="c2/max" HorizontalAlignment="Left" Margin="590,175,0,0" VerticalAlignment="Top" Width="70"/>
+        <CheckBox x:Name="new_col3" Content="c3/min" HorizontalAlignment="Left" Margin="660,175,0,0" VerticalAlignment="Top" Width="60"/>
         <TextBox x:Name="current_col4_input" HorizontalAlignment="Left" Height="22" Margin="730,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
         <CheckBox x:Name="current_col4" Content="col4" HorizontalAlignment="Left" Margin="730,86,0,0" VerticalAlignment="Top" Width="55"/>
         <TextBox x:Name="new_col4_input" HorizontalAlignment="Left" Height="22" Margin="730,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
-        <CheckBox x:Name="new_col4" Content="col4" HorizontalAlignment="Left" Margin="730,174,0,0" VerticalAlignment="Top" Width="55"/>
+        <CheckBox x:Name="new_col4" Content="c4/avg" HorizontalAlignment="Left" Margin="728,174,-4.4,0" VerticalAlignment="Top" Width="70"/>
         <ComboBox x:Name="opList" HorizontalAlignment="Left" Margin="440,15,0,0" VerticalAlignment="Top" Width="92" />
         <Button x:Name="opSend" Content="Send" HorizontalAlignment="Left" Margin="671,15,0,0" VerticalAlignment="Top" Width="75" Click="OpSend_Click"/>
         <ComboBox x:Name="opTableList" HorizontalAlignment="Left" Margin="555,15,0,0" VerticalAlignment="Top" Width="92" />
